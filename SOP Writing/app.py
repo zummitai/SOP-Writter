@@ -1,5 +1,6 @@
 from main import api
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from http import HTTPStatus
 import uvicorn
@@ -8,6 +9,21 @@ import uvicorn
 app = FastAPI( title="SOP Letter Writting",
     description="This is the basic of SOP Writing",
     version="0.0.1",)
+
+# Add CORS middleware
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Build the BaseModel Structure for Parameters
 class GetDetails(BaseModel):
