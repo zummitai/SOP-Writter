@@ -1,7 +1,10 @@
 import os
 import openai
+from dotenv import load_dotenv
+load_dotenv()
 
-openai.api_key = "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"
+API_KEY = os.getenv('API_KEY')
+openai.api_key = os.getenv('API_KEY')
 
 # def input_param():
 #     input_university_name = input("Enter Univeristy Full Name: ")
@@ -9,6 +12,7 @@ openai.api_key = "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"
 #     input_experince = input("Enter Your Experince: ")
 
 #     return input_university_name,input_field_name,input_experince
+
 
 def api(university_name, field_name, experince, uni_level):
 
@@ -30,4 +34,3 @@ def api(university_name, field_name, experince, uni_level):
     )
 
     return response["choices"][0]['text']
-
