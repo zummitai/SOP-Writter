@@ -21,13 +21,13 @@ def api(university_name, field_name, experince, uni_level):
     input_experince = experince
     university_level = uni_level
 
-    input_prompt = f'write a statement of purpose letter to a {input_university_name} in the field of {input_field_name} with having an experience of {input_experince} for the {university_level}'
+    input_prompt = f'write a one thousand five hundred word statement of purpose essay to the {input_university_name} to study {input_field_name} for the my {university_level} program. {input_experince}. Explain the usefulness of the course and how it will help the development of the economy and myself'
 
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=f'{input_prompt}.\n',
-        temperature=0.7,
-        max_tokens=2500,
+        temperature=0.85,
+        max_tokens=3500,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
